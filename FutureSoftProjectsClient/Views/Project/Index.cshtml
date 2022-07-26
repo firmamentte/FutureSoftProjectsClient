@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "WELCOME TO  FUTURESOFT PROJECTS";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/Projetcs/project.js" asp-append-version="true"></script>
+
+@{
+    await Html.RenderPartialAsync("GlobalSearch");
+}
+<div id="divProjectsGrid">
+    @{
+        await Html.RenderPartialAsync("ProjectGrid");
+    }
+</div>

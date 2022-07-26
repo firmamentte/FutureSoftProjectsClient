@@ -1,0 +1,31 @@
+﻿@model List<FutureSoftProjectsClient.Models.Project.ProjectGridModel>
+
+@if ((Model != null) && (Model.Any()))
+{
+    <div class="grid-view">
+        @foreach (var item in Model.OrderBy(project => project.Name))
+        {
+            <div class="gv-row">
+                <div class="main-grid">
+                    <div class="grid-image">
+                        <img class="gv-project-icon" src="@item.ImageLink" alt="Project Icon">
+                    </div>
+                    <div class="grid-content">
+                        <div class="gv-row-line">
+                            <span class="gv-value">@item.Name</span>
+                        </div>
+                        <div class="gv-row-line">
+                            @{
+                                await Html.RenderPartialAsync("GroupGrid", item.Groups);
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    { await Html.RenderPartialAsync("_GridViewMessage"); }
+}

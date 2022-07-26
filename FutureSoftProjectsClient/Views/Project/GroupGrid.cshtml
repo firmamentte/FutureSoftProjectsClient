@@ -1,0 +1,13 @@
+﻿@model List<FutureSoftProjectsClient.Models.Project.GroupGridModel>
+
+@if ((Model != null) && (Model.Any()))
+{
+    <div class="grid-view">
+        <ul>
+            @foreach (var item in Model.OrderBy(group => group.Name))
+            {
+                <li>@item.Name</li>
+            }
+        </ul>
+    </div>
+}
